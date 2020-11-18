@@ -1,0 +1,47 @@
+.btn-main {
+    padding: 10px 25px;
+    color: #ffffff;
+    background-color: var(--green);
+    border: 0;
+    border-radius: 20px;
+    font-size: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-main:hover {
+    color: var(--green);
+    background-color: #ffffff;
+    border: 2px solid var(--green);
+    padding: 8px 23px;
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.disabled:hover {
+    color: #ffffff!important;
+    background-color: var(--green)!important;
+    padding: 10px 25px!important;
+    border: 0!important;
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    .btn-main {
+        padding: 6px 18px;
+        font-size: 16px;
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    .btn-main {
+        padding: 8px 22px;
+    }
+
+    .btn-main:hover {
+        padding: 6px 20px;
+    }
+}

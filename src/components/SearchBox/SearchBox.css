@@ -1,0 +1,48 @@
+.search-box {
+    position: relative;
+    width: 500px;
+    margin-top: 30px;
+}
+
+.search-box--input {
+    width: 100%;
+    padding: 15px 150px 15px 30px;
+    box-sizing: border-box;
+    border-radius: 50px;
+    border: 0;
+    outline: none;
+    font-size: 20px;
+}
+
+.btn-position {
+    position: absolute;
+    top: 10%;
+    right: 8px;
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    .search-box {
+        width: 100%;
+    }
+
+    .search-box--input {
+        font-size: 16px;
+        padding: 12px 100px 12px 20px;
+    }
+
+    .btn-position {
+        top: 12%;
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (min-width: 770px) and (max-width: 991.98px) {
+    .search-box {
+        width: 400px;
+    }
+
+    .search-box--input {
+        padding: 12px 130px 12px 30px;
+    }
+}
