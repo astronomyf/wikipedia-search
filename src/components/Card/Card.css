@@ -121,8 +121,15 @@
     width: 100px;
     height: 100px;
   }
+
+  .card-shadow:after {
+    height: 0.1px;
+  }
 }
 
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
+  .card-shadow:after {
+    height: 0.1px;
+  }
 }

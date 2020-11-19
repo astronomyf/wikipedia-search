@@ -6,8 +6,14 @@ const Button = ({ id, label, disabled = false, onClick }) => {
   return (
     <button
       id={id}
+      type="submit"
       disabled={disabled}
-      onClick={typeof onClick === "function" && onClick}
+      onClick={(e) => {
+        e.preventDefault();
+        if (typeof onClick === "function") {
+          onClick();
+        }
+      }}
       className={`btn-main ${disabled ? "disabled" : ""}`}
     >
       {label}

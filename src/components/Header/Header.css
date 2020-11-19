@@ -23,7 +23,7 @@
   font-weight: normal;
 }
 
-.box-shadow:after {
+.box-shadow::after {
   content: "";
   position: absolute;
   width: 90%;
@@ -51,9 +51,10 @@
     font-size: 20px;
   }
 
-  .box-shadow:after {
+  .box-shadow::after {
     width: 90%;
     left: 5%;
+    height: 0.1px;
   }
 }
 
@@ -71,5 +72,9 @@
 
   .header-panel--title > h3 {
     font-size: 25px;
+  }
+
+  .box-shadow::after {
+    height: 0.1px;
   }
 }

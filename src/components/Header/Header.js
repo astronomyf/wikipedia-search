@@ -11,6 +11,7 @@ const Header = ({
   search,
   onChange,
   onClick,
+  onKeyUp,
   loading = false,
 }) => {
   return (
@@ -27,6 +28,7 @@ const Header = ({
         onChange={onChange}
         onClick={onClick}
         loading={loading}
+        onKeyUp={onKeyUp}
       />
     </div>
   );

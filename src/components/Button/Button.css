@@ -37,6 +37,10 @@
   .btn-main:hover {
     padding: 6px 16px;
   }
+
+  .disabled:hover {
+    padding: 8px 18px !important;
+  }
 }
 
 /* Medium devices (tablets, less than 992px) */
@@ -47,5 +51,9 @@
 
   .btn-main:hover {
     padding: 6px 20px;
+  }
+
+  .disabled:hover {
+    padding: 8px 22px !important;
   }
 }

@@ -10,6 +10,7 @@ const SearchBox = ({
   onChange,
   loading = false,
   onClick,
+  onKeyUp,
 }) => {
   return (
     <div className="search-box">
@@ -21,6 +22,11 @@ const SearchBox = ({
         onChange={(e) => {
           const { value } = e.target;
           onChange(value);
+        }}
+        onKeyUp={(e) => {
+          if (e.code === "Enter") {
+            onKeyUp();
+          }
         }}
       />
       <div className="btn-position">

@@ -8,7 +8,7 @@ import Footer from "./../../components/Footer/Footer";
 
 import "./Search.page.css";
 
-import WikiLogo from "./../../assets/images/wikipedia-logo.png";
+import WikiLogo from "./../../assets/images/wikipedia-logo.svg";
 import LoadingImage from "./../../assets/images/loading.svg";
 
 class SearchPage extends Component {
@@ -30,8 +30,8 @@ class SearchPage extends Component {
     this.setState({ resultSearch: [] }, async () => {
       const { inputSearch, lang } = this.state;
 
-      const proxy = "https://cors-anywhere.herokuapp.com/";
-      const url = `${proxy}https://${lang}.wikipedia.org/w/api.php?action=query&exintro=1&prop=extracts|pageimages&pithumbsize=250&format=json&redirect=&origin=*&generator=search&gsrsearch=${inputSearch}`;
+      //const proxy = "https://cors-anywhere.herokuapp.com/";
+      const url = `https://${lang}.wikipedia.org/w/api.php?action=query&exintro=1&prop=extracts|pageimages&pithumbsize=250&format=json&redirect=&origin=*&generator=search&gsrsearch=${inputSearch}`;
 
       const res = await fetch(url);
 
@@ -75,6 +75,11 @@ class SearchPage extends Component {
           search={inputSearch}
           onChange={(value) => this.setState({ inputSearch: value })}
           onClick={() => {
+            if (inputSearch !== "") {
+              this.setState({ loading: true }, () => this.searchWiki());
+            }
+          }}
+          onKeyUp={() => {
             if (inputSearch !== "") {
               this.setState({ loading: true }, () => this.searchWiki());
             }
