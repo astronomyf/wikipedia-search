@@ -26,13 +26,20 @@
   "browserslist": {
     "production": [
       ">0.2%",
+      "Edge > 1",
+      "Safari > 7",
+      "iOS > 8",
+      "Chrome > 20",
+      "ChromeAndroid > 20",
+      "Samsung > 4",
+      "Firefox > 10",
       "not dead",
-      "not op_mini all"
+      "ie >= 7"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 Chrome version",
+      "last 1 Firefox version",
+      "last 1 Safari version"
     ]
   }
 }
