@@ -28,7 +28,7 @@ class SearchPage extends Component {
 
   searchWiki() {
     this.setState({ resultSearch: [] }, async () => {
-      const { inputSearch, lang, disabled } = this.state;
+      const { inputSearch, lang } = this.state;
 
       // disable the button
       this.setState({ disabled: true });
