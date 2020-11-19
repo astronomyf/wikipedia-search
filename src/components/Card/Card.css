@@ -39,6 +39,16 @@
   margin: 0px 0px 0px 30px;
 }
 
+.card-header > h1 > a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.card-header > h1 > a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--green);
+}
+
 .card-body {
   margin-top: 20px;
   position: relative;

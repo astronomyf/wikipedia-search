@@ -20,7 +20,7 @@ class Card extends Component {
 
    render() {
 
-      const { title, description, imageUrl } = this.props;
+      const { title, description, imageUrl, lang } = this.props;
       const { expanded } = this.state;
 
       return <div className="card card-shadow pop">
@@ -30,7 +30,11 @@ class Card extends Component {
                   style={{ backgroundImage: `url('${imageUrl}')`}}
                   >
                   </div>
-                  <h1>{title}</h1>
+                  <h1>
+                     <a href={`https://${lang}.wikipedia.org/wiki/${title}`}>
+                        {title}
+                     </a>
+                  </h1>
                </div>
                <div className={`card-body ${expanded ? 'expanded' : ''}`}>
                   <p>{description}</p>
