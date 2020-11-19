@@ -31,8 +31,7 @@ class SearchPage extends Component {
       const { inputSearch, lang } = this.state;
 
       //const proxy = "https://cors-anywhere.herokuapp.com/";
-      const proxy2 = "https://thingproxy.freeboard.io/fetch/";
-      const url = `${proxy2}https://${lang}.wikipedia.org/w/api.php?action=query&exintro=1&prop=extracts|pageimages&pithumbsize=250&format=json&redirect=&origin=*&generator=search&gsrsearch=${inputSearch}`;
+      const url = `https://${lang}.wikipedia.org/w/api.php?action=query&exintro=1&prop=extracts|pageimages&pithumbsize=250&format=json&redirect=&origin=*&generator=search&gsrsearch=${inputSearch}`;
 
       const res = await fetch(url);
 
