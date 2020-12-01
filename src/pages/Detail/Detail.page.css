@@ -1,0 +1,71 @@
+.detail--container {
+  width: 100%;
+  height: 100%;
+}
+
+.page-content {
+  height: auto;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.loading {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.detail--container table {
+  float: right;
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin: 0px 20px;
+}
+
+.sinottico_testata > th {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.mw-headline {
+  font-size: 35px !important;
+}
+
+.section-heading,
+.in-block {
+  margin-top: 20px;
+}
+
+.thumbinner {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 10px;
+  float: right;
+  margin: 0px 15px 15px 15px;
+}
+
+.detail--container p {
+  float: none;
+  line-height: 25px;
+}
+
+.detail--container ul,
+.detail--container ol {
+  padding-left: 20px;
+}
+
+.detail--container a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.detail--container a:hover {
+  text-decoration: underline;
+}

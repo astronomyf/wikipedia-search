@@ -30,27 +30,29 @@ class SearchPage extends Component {
     this.setState({ resultSearch: [] }, async () => {
       const { inputSearch, lang } = this.state;
 
-      //const proxy = "https://cors-anywhere.herokuapp.com/";
-      const url = `https://${lang}.wikipedia.org/w/api.php?action=query&exintro=1&prop=extracts|pageimages&pithumbsize=250&format=json&redirect=&origin=*&generator=search&gsrsearch=${inputSearch}`;
+      const proxy = "https://cors-anywhere.herokuapp.com/";
 
-      const res = await fetch(url);
+      try {
+        const url = `${proxy}https://${lang}.wikipedia.org/w/api.php?action=query&exintro=1&prop=extracts|pageimages&pithumbsize=250&format=json&redirect=&origin=*&generator=search&gsrsearch=${inputSearch}`;
+        const res = await fetch(url);
 
-      if (res.ok) {
-        const data = await res.json();
-        const { query } = data;
+        if (res.ok) {
+          const data = await res.json();
+          const { query } = data;
 
-        if (query) {
-          const results = Object.values(query.pages);
-          this.setState({
-            resultSearch: results,
-            error: false,
-            loading: false,
-          });
-        } else {
-          this.setState({ resultSearch: [], error: true, loading: false });
+          if (query) {
+            const results = Object.values(query.pages);
+            this.setState({
+              resultSearch: results,
+              error: false,
+              loading: false,
+            });
+          } else {
+            this.setState({ resultSearch: [], error: true, loading: false });
+          }
         }
-      } else {
-        console.error("API call went wrong.");
+      } catch (e) {
+        console.error("API call went wrong.", e);
         this.setState({ resultSearch: [], error: true, loading: false });
       }
     });
@@ -98,6 +100,7 @@ class SearchPage extends Component {
                   key={res.pageid}
                   id={res.pageid}
                   title={res.title}
+                  pageid={res.pageid}
                   description={this.trimText(res.extract)}
                   imageUrl={res.thumbnail?.source || WikiLogo}
                   lang={lang}
