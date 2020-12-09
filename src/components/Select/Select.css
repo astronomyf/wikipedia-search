@@ -57,3 +57,12 @@
     height: 0.1px;
   }
 }
+
+/* Theme selectors */
+.theme-light .select-box {
+  background-color: #ffffff;
+}
+
+.theme-dark .select-box {
+  background-color: var(--light-black);
+}

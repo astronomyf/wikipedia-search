@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import ErrorMessage from "./../ErrorMessage/ErrorMessage";
+
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
@@ -7,7 +9,14 @@ class ErrorBoundary extends Component {
     this.state = { hasError: false };
   }
 
-  static defaultProps = { fallback: <h1>Something went wrong.</h1> };
+  static defaultProps = {
+    fallback: (
+      <ErrorMessage
+        title="Something went wrong"
+        description="An unknown error has occured."
+      />
+    ),
+  };
 
   static getDerivedStateFromError(error) {
     return { hasError: true };

@@ -1,12 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400&display=swap");
 
 :root {
-  --green: #5DBC89;
-  --light-green: #6FCF97;
-  --dark-green: #41825F;
+  --green: #5dbc89;
+  --light-green: #6fcf97;
+  --dark-green: #41825f;
   --black: #333333;
-  --light-black: #4F4F4F;
-  --grey: #ACACAC;
+  --light-black: #4f4f4f;
+  --grey: #acacac;
+  --white: #f5f6f7;
+  --dark-black: #18191a;
+  --light-black: #2e3133;
 }
 
 * {
@@ -15,18 +18,27 @@
 }
 
 body {
-  font-family: 'Lora';
+  font-family: "Lora";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.theme-light {
   background-color: #f2f2f2;
   color: var(--black);
 }
 
-input, select {
-  font-family: 'Lora';
+.theme-dark {
+  background-color: var(--dark-black);
+  color: var(--white);
+}
+
+input,
+select {
+  font-family: "Lora";
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

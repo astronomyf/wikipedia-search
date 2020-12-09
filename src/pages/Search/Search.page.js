@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import Header from "./../../components/Header/Header";
 import Select from "./../../components/Select/Select";
 import Logo from "./../../components/Logo/Logo";
 import Card from "./../../components/Card/Card";
 import Footer from "./../../components/Footer/Footer";
+import ErrorMessage from "./../../components/ErrorMessage/ErrorMessage";
+
+import { fetchWikipedia } from "./../../redux/actions/articlesActions";
 
 import "./Search.page.css";
 
@@ -17,45 +21,8 @@ class SearchPage extends Component {
 
     this.state = {
       inputSearch: "",
-      resultSearch: [],
       lang: "en",
-      error: false,
-      loading: false,
     };
-
-    this.searchWiki = this.searchWiki.bind(this);
-  }
-
-  searchWiki() {
-    this.setState({ resultSearch: [] }, async () => {
-      const { inputSearch, lang } = this.state;
-
-      const proxy = "https://cors-anywhere.herokuapp.com/";
-
-      try {
-        const url = `${proxy}https://${lang}.wikipedia.org/w/api.php?action=query&exintro=1&prop=extracts|pageimages&pithumbsize=250&format=json&redirect=&origin=*&generator=search&gsrsearch=${inputSearch}`;
-        const res = await fetch(url);
-
-        if (res.ok) {
-          const data = await res.json();
-          const { query } = data;
-
-          if (query) {
-            const results = Object.values(query.pages);
-            this.setState({
-              resultSearch: results,
-              error: false,
-              loading: false,
-            });
-          } else {
-            this.setState({ resultSearch: [], error: true, loading: false });
-          }
-        }
-      } catch (e) {
-        console.error("API call went wrong.", e);
-        this.setState({ resultSearch: [], error: true, loading: false });
-      }
-    });
   }
 
   trimText(text) {
@@ -63,7 +30,8 @@ class SearchPage extends Component {
   }
 
   render() {
-    const { inputSearch, resultSearch, lang, loading } = this.state;
+    const { inputSearch, lang } = this.state;
+    const { dispatch, loading, articles, errors } = this.props;
 
     return (
       <div className="page-search">
@@ -78,12 +46,12 @@ class SearchPage extends Component {
           onChange={(value) => this.setState({ inputSearch: value })}
           onClick={() => {
             if (inputSearch !== "") {
-              this.setState({ loading: true }, () => this.searchWiki());
+              dispatch(fetchWikipedia(lang, inputSearch));
             }
           }}
           onKeyUp={() => {
             if (inputSearch !== "") {
-              this.setState({ loading: true }, () => this.searchWiki());
+              dispatch(fetchWikipedia(lang, inputSearch));
             }
           }}
           loading={loading}
@@ -93,8 +61,13 @@ class SearchPage extends Component {
             <div>
               <img src={LoadingImage} alt="Loading" />
             </div>
+          ) : errors ? (
+            <ErrorMessage
+              title="Oops! Something went wrong."
+              description="Cannot show data at the moment. Please try again later."
+            />
           ) : (
-            resultSearch.map((res) => {
+            articles.map((res) => {
               return (
                 <Card
                   key={res.pageid}
@@ -115,4 +88,10 @@ class SearchPage extends Component {
   }
 }
 
-export default SearchPage;
+const mapStateToProps = (state) => ({
+  loading: state.articles.loading,
+  articles: state.articles.articles,
+  errors: state.articles.errors,
+});
+
+export default connect(mapStateToProps)(SearchPage);

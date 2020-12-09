@@ -6,16 +6,6 @@
   margin-left: 0px;
   margin-right: 0px;
   border-radius: 25px;
-  background-color: #ffffff;
-}
-
-.card-shadow:after {
-  content: "";
-  position: absolute;
-  width: 90%;
-  bottom: 1px;
-  z-index: -1;
-  box-shadow: 0px -10px 40px 10px rgba(0, 0, 0, 0.3);
 }
 
 .card-header {
@@ -40,7 +30,6 @@
 }
 
 .card-header > h1 > a {
-  color: var(--black);
   text-decoration: none;
 }
 
@@ -84,11 +73,6 @@
   font-weight: 600;
   cursor: pointer;
   padding-top: 10px;
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
 }
 
 .fix-overlay {
@@ -132,4 +116,46 @@
   .card-shadow:after {
     height: 0.1px;
   }
+}
+
+/* Theme selectors */
+.theme-light .card {
+  background-color: #ffffff;
+}
+
+.theme-light .card-shadow:after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  bottom: 1px;
+  z-index: -1;
+  box-shadow: 0px -10px 40px 10px rgba(0, 0, 0, 0.3);
+}
+
+.theme-light .card-overlay {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.theme-light .card-header > h1 > a {
+  color: var(--black);
+}
+
+.theme-dark .card {
+  background-color: var(--light-black);
+}
+
+.theme-dark .card-overlay {
+  background: linear-gradient(
+    0deg,
+    rgba(46, 49, 51, 1) 50%,
+    rgba(46, 49, 51, 0) 100%
+  );
+}
+
+.theme-dark .card-header > h1 > a {
+  color: var(--white);
 }

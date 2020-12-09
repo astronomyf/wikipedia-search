@@ -1,0 +1,15 @@
+.alert {
+  width: auto;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.alert > h3 {
+  margin-bottom: 10px;
+}
+
+.alert-error {
+  color: #ffffff;
+  background-color: #c15959;
+  border: 1px solid #651e1e;
+}

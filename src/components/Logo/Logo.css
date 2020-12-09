@@ -28,6 +28,10 @@
   font-weight: 700;
 }
 
+.switch {
+  margin-left: 15px;
+}
+
 @keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -58,4 +62,13 @@
   .logo-box::after {
     height: 0.1px;
   }
+}
+
+/* Theme selectors */
+.theme-light .logo-box {
+  background-color: #ffffff;
+}
+
+.theme-dark .logo-box {
+  background-color: var(--light-black);
 }

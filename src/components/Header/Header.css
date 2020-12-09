@@ -5,13 +5,11 @@
   margin: 40px 0px 30px 0px;
   padding: 40px 50px;
   box-sizing: border-box;
-  background-color: var(--green);
   background-image: url("./../../assets/images/header-image.svg");
   background-size: 200px;
   background-position: center right 50px;
   background-repeat: no-repeat;
   border-radius: 50px;
-  color: #ffffff;
 }
 
 .header-panel--title > h1 {
@@ -21,15 +19,6 @@
 .header-panel--title > h3 {
   font-size: 30px;
   font-weight: normal;
-}
-
-.box-shadow::after {
-  content: "";
-  position: absolute;
-  width: 90%;
-  bottom: 1px;
-  z-index: -1;
-  box-shadow: 0px -10px 40px 15px var(--light-green);
 }
 
 /* Small devices (landscape phones, less than 768px) */
@@ -51,7 +40,7 @@
     font-size: 20px;
   }
 
-  .box-shadow::after {
+  .theme-light .box-shadow::after {
     width: 90%;
     left: 5%;
     height: 0.1px;
@@ -74,7 +63,27 @@
     font-size: 25px;
   }
 
-  .box-shadow::after {
+  .theme-light .box-shadow::after {
     height: 0.1px;
   }
+}
+
+/* Theme selectors */
+.theme-light .header-panel {
+  background-color: var(--green);
+  color: #ffffff;
+}
+
+.theme-light .box-shadow::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  bottom: 1px;
+  z-index: -1;
+  box-shadow: 0px -10px 40px 15px var(--light-green);
+}
+
+.theme-dark .header-panel {
+  background-color: var(--light-black);
+  color: var(--white);
 }

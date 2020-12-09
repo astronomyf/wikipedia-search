@@ -1,3 +1,60 @@
+/* Component css */
+hr {
+  border: 1px solid var(--grey);
+  margin: 20px 0px;
+}
+
+.articles-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.articles-box {
+  position: relative;
+  min-width: 50px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin: 10px 10px 10px 0px;
+}
+
+.articles-box:last-child {
+  margin-right: 0px;
+}
+
+.articles-box::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  bottom: 1px;
+  left: 10px;
+  z-index: -1;
+  box-shadow: 0px -10px 40px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.switch-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 20px 0px;
+}
+
+.switch-container h3 {
+  margin-right: 20px !important;
+}
+
 .detail--container {
   width: 100%;
   height: 100%;
@@ -6,7 +63,6 @@
 .page-content {
   height: auto;
   padding: 20px;
-  background-color: #ffffff;
 }
 
 .loading {
@@ -61,11 +117,63 @@
   padding-left: 20px;
 }
 
-.detail--container a {
+.detail--container .detail-body a {
   color: var(--green);
   text-decoration: none;
 }
 
-.detail--container a:hover {
+.detail--container .detail-body a:hover {
   text-decoration: underline;
+}
+
+/* Theme selectors */
+.theme-light .detail--container table {
+  background-color: #ffffff;
+}
+
+.theme-light .thumbinner {
+  background-color: #ffffff;
+}
+
+.theme-light .articles-box {
+  background-color: #ffffff;
+}
+
+.theme-light .articles-box:hover {
+  background-color: var(--green);
+  color: #ffffff;
+}
+
+.theme-light .articles-box:hover .home-icon {
+  color: #ffffff;
+}
+
+.theme-light a.articles-box {
+  background-color: #ffffff;
+  color: var(--green);
+  text-decoration: none;
+}
+
+.theme-light a.articles-box:hover {
+  color: #ffffff;
+}
+
+.theme-dark .detail--container table {
+  background-color: var(--light-dark);
+}
+
+.theme-dark .thumbinner {
+  background-color: var(--light-dark);
+}
+
+.theme-dark a.articles-box {
+  background-color: var(--light-black);
+  color: var(--green);
+  text-decoration: none;
+}
+
+.theme-dark a.articles-box:hover {
+  background-color: var(--green);
+  color: var(--white);
+  text-decoration: none;
 }

@@ -47,3 +47,8 @@
     padding: 12px 130px 12px 30px;
   }
 }
+
+/* Theme selectors */
+.theme-dark .search-box--input {
+  background-color: var(--white);
+}

@@ -9,8 +9,6 @@ import {
 import SearchPage from "./pages/Search/Search.page";
 import DetailPage from "./pages/Detail/Detail.page";
 
-import "./App.css";
-
 function App() {
   return (
     <Router>
