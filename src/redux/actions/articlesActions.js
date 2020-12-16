@@ -19,7 +19,7 @@ export function fetchWikipedia(lang, inputSearch) {
   return async (dispatch) => {
     dispatch(getArticles());
 
-    const url = `https://thingproxy.freeboard.io/fetch/https://${lang}.wikipedia.org/w/api.php?action=query&exintro=1&prop=extracts|pageimages&pithumbsize=250&format=json&redirect=&origin=*&generator=search&gsrsearch=${inputSearch}`;
+    const url = `https://${lang}.wikipedia.org/w/api.php?action=query&exintro=1&prop=extracts|pageimages&pithumbsize=250&format=json&redirect=&origin=*&generator=search&gsrsearch=${inputSearch}`;
 
     try {
       const res = await fetch(url);

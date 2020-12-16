@@ -80,11 +80,9 @@ const DetailPage = () => {
   }
 
   async function fetchPageDetail() {
-    const proxy = "https://cors-anywhere.herokuapp.com/";
-
     try {
       const res = await fetch(
-        `${proxy}https://${lang}.wikipedia.org/w/api.php?action=parse&pageid=${pageid}&format=json&redirects=true&mobileformat=true&disableeditsection=true&disablestylededuplication=true&disablelimitreport=true&prop=displaytitle|subtitle|text|images`
+        `https://${lang}.wikipedia.org/w/api.php?action=parse&pageid=${pageid}&format=json&redirects=true&mobileformat=true&disableeditsection=true&disablestylededuplication=true&disablelimitreport=true&prop=displaytitle|subtitle|text|images`
       );
       const data = await res.json();
       const { parse } = data;
